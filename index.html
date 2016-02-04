@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>O-framework</title>
+	<link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap.min.css">
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+
+	<header class="container well text-center">
+		<div class="row">
+			<h1>Another ToDo App</h1>
+			<h4 id="title"></h4>
+		</div>
+		<nav class="row">
+			<ul class="clearfix">
+				<li>
+					<a href="#/form" class="btn btn-default">
+						Form
+					</a>
+				</li>
+				<li>
+					<a href="#/todo" class="btn btn-default">
+						To do tasks
+					</a>
+				</li>
+				<li>
+					<a href="#/done" class="btn btn-default">
+						Done tasks
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+	<div class="container app-container">
+		<!-- container for my SPA -->
+		<div id="app">
+			<div class="text-center">
+				Welcome! This is todo application implemented using my own framework - <b>O</b>
+			</div>
+		</div>
+	</div>
+
+
+	<footer class="footer">
+		<div class="container well">
+			<span class="pull-left">My JavaScript Framework testing</span>
+			<span class="pull-right">2016</span>
+		</div>
+	</footer>
+
+
+
+	
+	<!-- template library -->
+	<script src="bower_components/handlebars/handlebars.min.js"></script>
+	<!-- framework -->
+	<script src="own-framework/own-framework.js"></script>
+
+	<!-- app -->
+	<script src="app.js"></script>
+
+	<!-- templates -->
+	<script src="templates/templates.js"></script>
+
+	<!-- components -->
+	<script src="components/todo.js"></script>
+	<script src="components/title.js"></script>
+	<script src="components/form.js"></script>
+	<script src="components/done.js"></script>
+
+</body>
+</html>

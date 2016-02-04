@@ -1,0 +1,13 @@
+{
+  "name": "Own Framework",
+  "version": "0.0.1",
+  "description": "JS Menthoring Homework",
+  "authors": [
+    "Igor"
+  ],
+  "license": "O",
+  "dependencies": {
+    "handlebars": "latest",
+    "bootstrap-css-only": "latest"
+  }
+}
