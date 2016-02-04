@@ -113,7 +113,7 @@
 			var _this = this;
 
 			this.elem.addEventListener(eventName, function(event){
-				if (event.target.matches(selector)){
+				if (event.target.matches(selector) && _this.active){
 					var dataModelChanger = func(event);
 
 					//passing getDataModel to function-changer of DataModel
@@ -125,6 +125,8 @@
 				}
 
 			});
+
+		return this;
 		}
 	}
 

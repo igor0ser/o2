@@ -6,7 +6,7 @@
 		title: `
 			You have <b>{{done}}</b> done cases and <b>{{undone}}</b> undone cases
 		`,
-		form: `
+		todo: `
 			<h3 class="text-center">
 				Add some task
 			</h3>
@@ -19,8 +19,6 @@
 					Add task
 				</button>
 			</form>
-		`,
-		todo: `
 			<h3 class="text-center">
 				Tasks to do
 			</h3>

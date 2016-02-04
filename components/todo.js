@@ -13,6 +13,19 @@
 
 		.addDataModel(o.getDataModel('todoList'))
 
+		.addListener('submit', 'form', 'todoList', function(event){
+			event.preventDefault();
+			return function(compEl, getDataModel){
+				var model = getDataModel('todoList');
+
+				model.push({
+					id: model[model.length-1].id + 1,
+					name: compEl.querySelector('.input-text').value,
+					done: false
+				});
+			};
+		})
+
 		.addListener('click', 'button[data-o-id]', 'todoList', function(event){
 
 			return function(compEl, getDataModel){
