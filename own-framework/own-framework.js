@@ -114,12 +114,11 @@
 
 			this.elem.addEventListener(eventName, function(event){
 				if (event.target.matches(selector)){
-					var resFunc = func(event);
+					var dataModelChanger = func(event);
 
-					//passing getDataModel to result function of listener
-					resFunc(_this.elem, _this.getDataModel.bind(_this));
+					//passing getDataModel to function-changer of DataModel
+					dataModelChanger(_this.elem, _this.getDataModel.bind(_this));
 
-					//we passing to listener name of dataModel that will be changed
 					//after invocation of function all components that are using this dataModel
 					//will be updated
 					_this[dataSymbol][dataNameWillBeChanged].updateComponents();
