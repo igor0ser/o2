@@ -31,6 +31,7 @@
 			return function(compEl, getDataModel){
 				var id = event.target.getAttribute('data-o-id');
 				var model = getDataModel('todoList');
+				//console.log(model);
 				for (var i = 0; i < model.length; i++) {
 					if (model[i].id == id){
 						model[i].done = true;
