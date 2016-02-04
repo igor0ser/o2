@@ -198,9 +198,10 @@
 
 /*=========       ROUTING       =========*/
 	var ROUTE_EVENT_NAME = 'hashchange';
+	var ONLOAD_EVENT_NAME = 'load';
 
-	function hashChangeListener(event) {
-		var URL = event.newURL.split('#')[1];
+	function hashChangeListener(e) {
+		var URL = global.location.hash.slice(1);
 
 		for (var i = 0; i < routeList.length; i++) {
 			if (URL === routeList[i].routeName){
@@ -208,10 +209,26 @@
 				routeList[i].component.activate();
 			}
 		}
+
+	setLinksActive(URL);
+	}
+
+	function setLinksActive(URL){
+		var links = document.querySelectorAll('a[href^="#"]');
+		var href = 'href';
+		var hashURL = '#' + URL;
+
+		for (var i = 0; i < links.length; i++) {
+			if (links[i].getAttribute(href) === hashURL){
+				links[i].classList.add('active');
+			} else {
+				links[i].classList.remove('active');
+			}
+		}
 	}
 
 	global.addEventListener(ROUTE_EVENT_NAME, hashChangeListener);
-
+	global.addEventListener(ONLOAD_EVENT_NAME, hashChangeListener);
 
 /*=========   REAVILING MODULE   =========*/
 

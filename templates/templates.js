@@ -25,7 +25,7 @@
 			<table class="table">
 				<tr>
 					<th>#</th>
-					<th>Task</th>
+					<th class="task">Task</th>
 					<th>Done</th>
 				</tr>
 				{{#each tasks}}
