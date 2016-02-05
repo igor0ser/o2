@@ -109,19 +109,19 @@
 		}
 
 		//adding event listeners to our component
-		addListener(eventName, selector, dataNameWillBeChanged, func){
+		registerDataChanger(eventName, selector, dataWillBeChanged, func){
 			var _this = this;
 
 			this.elem.addEventListener(eventName, function(event){
 				if (event.target.matches(selector) && _this.active){
-					var dataModelChanger = func(event);
+					var dataChanger = func(event);
 
-					//passing getDataModel to function-changer of DataModel
-					dataModelChanger(_this.elem, _this.getDataModel.bind(_this));
+					//passing getDataModel and DOM element to function-changer of DataModel
+					dataChanger(_this.elem, _this.getDataModel.bind(_this));
 
 					//after invocation of function all components that are using this dataModel
 					//will be updated
-					_this[dataSymbol][dataNameWillBeChanged].updateComponents();
+					_this[dataSymbol][dataWillBeChanged].updateComponents();
 				}
 
 			});

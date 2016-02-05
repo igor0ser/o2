@@ -8,8 +8,6 @@
 			template: templates.about
 		})
 
-			.registerRoute('')
-			.registerRoute('/about');
-
+			.registerRoute('');
 
 })();

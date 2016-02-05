@@ -13,22 +13,22 @@
 
 		.addDataModel(o.getDataModel('todoList'))
 
-		.addListener('submit', 'form', 'todoList', function(event){
+		.registerDataChanger('submit', 'form', 'todoList', function(event){
 			event.preventDefault();
-			return function(compEl, getDataModel){
+			return function(compElement, getDataModel){
 				var model = getDataModel('todoList');
 
 				model.push({
 					id: model[model.length-1].id + 1,
-					name: compEl.querySelector('.input-text').value,
+					name: compElement.querySelector('.input-text').value,
 					done: false
 				});
 			};
 		})
 
-		.addListener('click', 'button[data-o-id]', 'todoList', function(event){
+		.registerDataChanger('click', 'button[data-o-id]', 'todoList', function(event){
 
-			return function(compEl, getDataModel){
+			return function(compElement, getDataModel){
 				var id = event.target.getAttribute('data-o-id');
 				var model = getDataModel('todoList');
 				//console.log(model);
