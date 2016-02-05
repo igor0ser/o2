@@ -65,7 +65,7 @@
 		about: `
 			<div class="text-center">
 				Welcome! This is todo application implemented using my own framework - <b>O</b>
-				<img src="diagramm/diagramm.svg" class="diagramm">
+				<img src="diagram/diagram.svg" class="diagramm">
 			</div>
 		`
 	};

@@ -9,7 +9,7 @@ nav li{
 }
 
 .app-container{
-	height: 660px;
+	min-height: 660px;
 	border-left: 1px solid #e3e3e3;
 	border-right: 1px solid #e3e3e3;
 }
@@ -24,7 +24,7 @@ form .btn-info{
 }
 
 .diagramm{
-	margin-top: 45px;
+	margin: 15px auto;
 }
 
 .mb0{
@@ -33,4 +33,8 @@ form .btn-info{
 
 .task{
 	width: 70%;
+}
+
+h1{
+	margin-top: 0;
 }
