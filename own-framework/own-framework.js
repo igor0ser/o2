@@ -53,6 +53,7 @@
 
 	//private list to registering routes
 	var routeList = [];
+	var routeListComplex = [];
 
 	//faking private field in Component using ES6 Symbols
 	var dataSymbol = Symbol('dataModels');
@@ -90,6 +91,15 @@
 		//adding our component's route to route's array
 		registerRoute(routeName){
 			routeList.push({
+				routeName: routeName,
+				component: this
+			});
+			return this;
+		}
+
+		//adding our complex component's route to route's array
+		registerComplexRoute(routeName){
+			routeListComplex.push({
 				routeName: routeName,
 				component: this
 			});
@@ -192,6 +202,8 @@
 
 	function hashChangeListener(e) {
 		var URL = global.location.hash.slice(1);
+		var x = URL.split('/');
+		console.log(x);
 
 		for (var i = 0; i < routeList.length; i++) {
 			if (URL === routeList[i].routeName){
@@ -199,7 +211,6 @@
 				routeList[i].component.activate();
 			}
 		}
-
 	setLinksActive(URL);
 	}
 
@@ -216,6 +227,7 @@
 		}
 	}
 
+	//private function to add .active on current link and delete on others
 	function setLinksActive(URL){
 		var links = document.querySelectorAll('a[href^="#"]');
 		var href = 'href';

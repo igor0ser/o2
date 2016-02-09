@@ -67,6 +67,11 @@
 				Welcome! This is todo application implemented using my own framework - <b>O</b>
 				<img src="diagram/diagram.svg" class="diagramm">
 			</div>
+		`,
+		task: `
+			<div class="well">{{task.id}}</div>
+			<div class="well">{{task.name}}</div>
+			<div class="well">{{task.done}}</div>
 		`
 	};
 
