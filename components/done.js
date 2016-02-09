@@ -31,12 +31,4 @@
 		this.tasks = tasks;
 		}
 
-		window.x = x = {};
-		var i1 = Symbol('dataModels');
-		x[i1] = 'adsasdas';
-		console.log(x);
-		
-		var i2 = Symbol('dataModels');
-		console.log(x[i2]);
-		console.log(x[i1]);
 })();

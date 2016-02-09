@@ -78,11 +78,13 @@
 		activate(){
 			this.elem.innerHTML = this.controller.getView(this.getDataModel.bind(this));
 			this.active = true;
+			return this;
 		}
 
-		//this function is used by function deactivateComponentsBySelector
+		//just set active to false
 		deactivate(){
 			this.active = false;
+			return this;
 		}
 
 		//adding our component's route to route's array
@@ -102,8 +104,8 @@
 			return this;
 		}
 
-		//we will pass this function as a parameter to controller's functions
-		//and event listeners to allow them use component's dataModels
+		//we will pass this function as a parameter to controller's functions and event listeners
+		//to allow them use component's dataModels
 		getDataModel(name){
 			return this[dataSymbol][name].model;
 		}
@@ -130,18 +132,6 @@
 		}
 	}
 
-	//private function for deactivating components that using particular selector
-	//when this selector becomes used by another components
-	function deactivateComponentsBySelector(selector){
-		for (var i = 0; i < modules.length; i++) {
-			for (var j = 0; j < modules[i][componentSymbol].length; j++) {
-				var comp = modules[i][componentSymbol][j].component;
-				if (comp.selector === selector){
-					comp.deactivate();
-				}
-			}
-		}
-	}
 
 
 /*=========      CONTROLLER      =========*/
@@ -175,7 +165,7 @@
 			//list of components that are using this DataModel
 			this[compSymbol] = [];
 
-			//saving our DataModel in global list om DataModels
+			//saving our DataModel in global list of DataModels
 			dataList[name] = this;
 		}
 		addToComponentList(component){
@@ -190,7 +180,7 @@
 		}
 	}
 
-	//public function to get DataModel by name
+	//public function to get DataModel by name from global list of DataModels
 	function getDataModel(name){
 		return dataList[name];
 	}
@@ -211,6 +201,19 @@
 		}
 
 	setLinksActive(URL);
+	}
+
+	//private function for deactivating components that using particular selector
+	//when this selector becomes used by another components
+	function deactivateComponentsBySelector(selector){
+		for (var i = 0; i < modules.length; i++) {
+			for (var j = 0; j < modules[i][componentSymbol].length; j++) {
+				var comp = modules[i][componentSymbol][j].component;
+				if (comp.selector === selector){
+					comp.deactivate();
+				}
+			}
+		}
 	}
 
 	function setLinksActive(URL){
